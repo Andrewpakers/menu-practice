@@ -1,0 +1,134 @@
+:root {
+    --backgroud: rgb(0, 0, 255, 1);
+    --foreground: white;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+body {
+    display: flex;
+    overflow: hidden;
+}
+img {
+    height: fit-content;
+    width: auto;
+}
+.viewport {
+    width: 800px;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-left: 40px;
+}
+.imageContainer {
+    display: inline-block;
+    width: fit-content;
+    white-space: nowrap;
+    transition: all 0.5s ease;
+}
+.carousel {
+    display: flex;
+    flex-direction: column;
+}
+.carouselControls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.control {
+    border: 1px solid var(--backgroud);
+    border-radius: 50%;
+    height: 6px;
+    width: 6px;
+    background-color: var(--foreground);
+    transition: background-color 1s ease;
+}
+.control:active {
+    background-color: var(--backgroud);
+}
+.navbar {
+    height: 100vh;
+    width: 200px;
+    background-color: var(--backgroud);
+    color: var(--foreground);
+    display: flex;
+    flex-direction: column;
+    padding-top: 33px;
+    gap: 10px;
+    overflow: hidden;
+    transition: width 0.4s ease;
+    flex-shrink: 0;
+}
+.lineContainer {
+    position: absolute;
+    background-color: var(--backgroud);
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 5px;
+    align-content: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.line {
+    width: 24px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--foreground);
+}
+
+.lineContainer.vertical {
+    flex-direction: row;
+}
+
+.line.vertical {
+    height: 20px;
+    width: 3px;
+}
+.navbarItem {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 25px;
+    transition: height 0.3s;
+    overflow: hidden;
+    padding: 0px;
+    margin-left: 10px;
+}
+.navbarItem.expanded {
+    height: 89px;
+}
+.navbarItem div {
+    margin-left: 15px;
+    overflow: hidden;
+}
+.navbarItem div.hidden {
+    height: 0px;
+}
+
+@media only screen and (max-width: 700px) {
+    .navbar {
+        position: fixed;
+        z-index: 1;
+      width: 100%;
+      height: 100%;
+      padding-left: 0px;
+      align-items: center;
+    }
+    .navbarItem > * {
+        width: fit-content;
+    }
+    .navbarItem div {
+        margin-left: 0px;
+    }
+    .navbarItem {
+        width: 60px;
+        align-content: center;
+        justify-content: center;
+    }
+    .lineContainer {
+        position: fixed;
+        z-index: 2;
+    }
+  }
